@@ -62,6 +62,7 @@ from deebot_client.commands.json.voice_assistant_state import (
     SetVoiceAssistantState,
 )
 from deebot_client.commands.json.volume import GetVolume, SetVolume
+from deebot_client.commands.json.water_info import GetWaterInfo, SetWaterInfo
 from deebot_client.commands.json.work_mode import GetWorkMode, SetWorkMode
 from deebot_client.const import DataType
 from deebot_client.events import (
@@ -92,6 +93,7 @@ from deebot_client.events import (
     VolumeEvent,
     WorkMode,
     WorkModeEvent,
+    water_info,
     auto_empty,
 )
 from deebot_client.events.auto_empty import AutoEmptyEvent

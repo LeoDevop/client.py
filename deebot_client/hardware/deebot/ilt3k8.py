@@ -11,6 +11,7 @@ from deebot_client.capabilities import (
     CapabilityExecute,
     CapabilityExecuteTypes,
     CapabilityLifeSpan,
+    CapabilityNumber,
     CapabilitySet,
     CapabilitySetEnable,
     CapabilitySettings,
@@ -233,7 +234,17 @@ DEVICES[short_name(__name__)] = StaticDeviceInfo(
             clean=CapabilityEvent(StatsEvent, [GetStats()]),
             report=CapabilityEvent(ReportStatsEvent, []),
             total=CapabilityEvent(TotalStatsEvent, [GetTotalStats()]),
+
         ),
-        # TODO add water once https://github.com/DeebotUniverse/client.py/pull/1100 is merged
+        water=CapabilityWater(
+            amount=CapabilityNumber(
+                event=water_info.WaterCustomAmountEvent,
+                get=[GetWaterInfo()],
+                set=lambda custom_amount: SetWaterInfo(custom_amount=custom_amount),
+                min=0,
+                max=50,
+            ),
+            mop_attached=CapabilityEvent(water_info.MopAttachedEvent, [GetWaterInfo()]),
+        ),
     ),
 )

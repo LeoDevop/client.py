@@ -18,6 +18,7 @@ from deebot_client.capabilities import (
     CapabilitySetTypes,
     CapabilityStation,
     CapabilityStats,
+    CapabilityWater,
     DeviceType,
 )
 from deebot_client.commands import StationAction
